@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Day in Dongguan</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>A Day in Dongguan</h1>
+    <p>Experience my hometown through sound and vision.</p>
+  </header>
+
+  <main>
+    <section class="visualscape" aria-label="Dongguan city scenes">
+      <img
+        id="sceneImage"
+        src="images/morning.jpg"
+        alt="Morning scenery in Dongguan, China"
+      >
+
+      <div class="scene-info">
+        <h2 id="sceneTitle">Morning</h2>
+        <p id="sceneDescription">
+          The city wakes up with birds singing and gentle morning sounds.
+        </p>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Sound and scene controls">
+      <h2>Explore Dongguan</h2>
+
+      <div class="scene-buttons">
+        <button type="button" data-scene="morning">
+          Morning
+        </button>
+
+        <button type="button" data-scene="afternoon">
+          Afternoon
+        </button>
+
+        <button type="button" data-scene="night">
+          Night
+        </button>
+      </div>
+
+      <div class="audio-player">
+        <audio id="soundscape" controls preload="metadata">
+          <source
+            src="audio/dongguan-soundscape.mp3"
+            type="audio/mpeg"
+          >
+          Your browser does not support HTML5 audio.
+        </audio>
+      </div>
+
+      <p id="audioStatus" aria-live="polite">
+        Press play to experience the sounds of Dongguan.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Lab 5 | Design with Sound & Vision</p>
+  </footer>
+</body>
+</html>
