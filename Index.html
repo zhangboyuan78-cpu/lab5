@@ -1,71 +1,64 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Day in Dongguan</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d1b">
+  <meta name="description" content="Shenzhen in 75 Seconds: an original interactive soundscape and visualscape inspired by Futian, Huaqiangbei and Shenzhen Bay.">
+  <title>Shenzhen in 75 Seconds | Sound & Vision</title>
+  <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
-
 <body>
-  <header>
-    <h1>A Day in Dongguan</h1>
-    <p>Experience my hometown through sound and vision.</p>
-  </header>
+  <div class="page-grain" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Back to top"><span class="brand-mark">SZ<span class="mark-dot">.</span></span><span class="brand-caption">SOUND / VISION</span></a>
+      <div class="top-right"><span class="online-dot" aria-hidden="true"></span><span>AN INTERACTIVE CITY PORTRAIT</span><span class="issue">NO. 001 / 2026</span></div>
+    </header>
 
-  <main>
-    <section class="visualscape" aria-label="Dongguan city scenes">
-      <img
-        id="sceneImage"
-        src="images/morning.jpg"
-        alt="Morning scenery in Dongguan, China"
-      >
+    <main id="top">
+      <section class="intro" aria-labelledby="hero-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span class="tiny-line"></span> A 75-SECOND AUDIO JOURNEY</p>
+          <h1 id="hero-title">SHENZHEN<span class="title-star">✳</span><br><em>in sound.</em></h1>
+          <p class="intro-blurb">From the morning rush to glowing tech streets and the quiet waterfront. Hear the city's changing rhythm, and watch it come alive.</p>
+          <div class="intro-tags"><span>深圳 · CHINA</span><span>03 SCENES</span><span>01:15 RUNTIME</span></div>
+        </div>
+        <div class="intro-side" aria-label="Graphic indicating sound"><div class="sound-line"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>TURN THE SOUND ON<br>TO SEE THE CITY MOVE</p></div>
+      </section>
 
-      <div class="scene-info">
-        <h2 id="sceneTitle">Morning</h2>
-        <p id="sceneDescription">
-          The city wakes up with birds singing and gentle morning sounds.
-        </p>
-      </div>
-    </section>
+      <section class="player" aria-label="Interactive Shenzhen soundscape">
+        <div class="screen" id="screen">
+          <div class="ambient-light" aria-hidden="true"></div>
+          <div class="visual scene-futian is-active" data-scene="0"><img src="assets/futian.svg" alt="Original vector illustration of Shenzhen's skyscrapers and glowing roads at dawn." decoding="async"><div class="light-track" aria-hidden="true"></div></div>
+          <div class="visual scene-huaqiangbei" data-scene="1" aria-hidden="true"><img src="assets/huaqiangbei.svg" alt="Original vector illustration of a nighttime technology shopping street with luminous signboards and pedestrians." decoding="async"><div class="neon-halo" aria-hidden="true"></div></div>
+          <div class="visual scene-bay" data-scene="2" aria-hidden="true"><img src="assets/shenzhen-bay.svg" alt="Original vector illustration of a waterfront promenade and distant city skyline beside Shenzhen Bay." decoding="async"><div class="water-shimmer" aria-hidden="true"></div></div>
+          <div class="screen-vignette" aria-hidden="true"></div>
+          <div class="screen-top"><span class="live-pill"><span class="pulse-dot"></span> SOUND-REACTIVE EXPERIENCE</span><span class="screen-coordinates">22°32′ N / 114°03′ E</span></div>
+          <div class="screen-bottom"><div><p class="scene-counter">SCENE <span id="sceneCount">01</span> / 03</p><h2 id="sceneTitle">FUTIAN, 08:00</h2><p id="sceneSubtitle">The city wakes up. Footsteps, train rhythms, moving traffic.</p></div><div class="big-chinese" id="sceneChinese" lang="zh-CN">福田</div></div>
+          <div class="visual-bars" id="visualBars" aria-hidden="true"></div>
+        </div>
 
-    <section class="controls" aria-label="Sound and scene controls">
-      <h2>Explore Dongguan</h2>
+        <div class="control-desk">
+          <audio id="soundscape" preload="metadata" src="assets/shenzhen-75s.mp3" aria-label="75-second original Shenzhen-inspired soundscape"></audio>
+          <div class="transport-row">
+            <button id="playButton" class="play-button" type="button" aria-label="Play soundscape" aria-pressed="false"><svg id="playIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.7v12.6L18.5 12z"/></svg></button>
+            <div class="track-info"><span class="track-label">NOW PLAYING</span><strong>THE RHYTHM OF SHENZHEN</strong><span class="track-subtitle">An original 3-part sound collage</span></div>
+            <div class="time-readout"><time id="currentTime">00:00</time><span class="time-slash">/</span><time id="duration">01:15</time></div>
+          </div>
+          <div class="seek-container"><label class="sr-only" for="seekBar">Seek through the 75-second soundtrack</label><input id="seekBar" type="range" min="0" max="75" step="0.1" value="0" style="--progress:0%"><div class="track-break break-1" aria-hidden="true"></div><div class="track-break break-2" aria-hidden="true"></div></div>
+          <div class="controls-foot"><div class="chapters" role="group" aria-label="Jump to a scene"><button type="button" class="chapter is-current" data-jump="0" aria-current="true"><span class="chapter-dot"></span> 01 FUTIAN <small>0:00</small></button><button type="button" class="chapter" data-jump="25"><span class="chapter-dot"></span> 02 HUAQIANGBEI <small>0:25</small></button><button type="button" class="chapter" data-jump="50"><span class="chapter-dot"></span> 03 SHENZHEN BAY <small>0:50</small></button></div><div class="micro-controls"><label for="volumeBar" class="volume-label" title="Volume">VOL</label><input id="volumeBar" type="range" min="0" max="1" step="0.05" value="0.8" aria-label="Volume"><button id="reactivityButton" type="button" class="mode-button" aria-pressed="true" title="Toggle audio-reactive motion">MOTION <span id="motionStatus">ON</span></button></div></div>
+        </div>
+      </section>
 
-      <div class="scene-buttons">
-        <button type="button" data-scene="morning">
-          Morning
-        </button>
+      <section class="story-section" aria-labelledby="story-title"><div class="section-header"><span class="section-kicker">/ THE JOURNEY</span><h2 id="story-title">Three sides of one city.</h2><p>Click a chapter to jump straight to that part of the audio.</p></div><div class="story-grid"><button class="story-card" type="button" data-jump="0"><span class="story-top"><span>01 / 00:00–00:25</span><span class="mini-arrow">↗</span></span><strong>Morning Motion</strong><span class="story-zh" lang="zh-CN">福田 · FUTIAN</span><p>Metro-style tones, footsteps and the low rush of a city heading to work.</p></button><button class="story-card" type="button" data-jump="25"><span class="story-top"><span>02 / 00:25–00:50</span><span class="mini-arrow">↗</span></span><strong>Electric Streets</strong><span class="story-zh" lang="zh-CN">华强北 · HUAQIANGBEI</span><p>Bright electronic notes and a dense, restless shopping-street atmosphere.</p></button><button class="story-card" type="button" data-jump="50"><span class="story-top"><span>03 / 00:50–01:15</span><span class="mini-arrow">↗</span></span><strong>Open Water</strong><span class="story-zh" lang="zh-CN">深圳湾 · SHENZHEN BAY</span><p>Sea breeze and waves soften the distant sound of the city at the waterfront.</p></button></div></section>
 
-        <button type="button" data-scene="afternoon">
-          Afternoon
-        </button>
+      <section class="about-section" aria-labelledby="about-title"><div><span class="section-kicker">/ THE CONCEPT</span><h2 id="about-title">A city you can <em>hear</em> and <em>see.</em></h2></div><div class="about-content"><p>Shenzhen is often represented by its skyline and technology. This project explores the city through imagined everyday sounds: the rhythm of transit, the electronic energy of a shopping street, and the calm of the waterfront.</p><p>The three scenes change automatically with the soundtrack. The glow and equalizer respond to the playing audio in real time using the Web Audio API. You can pause, seek, adjust volume, or jump between scenes.</p><p class="disclosure"><strong>Creative disclosure:</strong> This is an artistic interpretation, <strong>not a documentary field recording</strong>. All audio was synthesized and assembled for this project, and all illustrations were drawn as original SVG vectors.</p></div></section>
 
-        <button type="button" data-scene="night">
-          Night
-        </button>
-      </div>
-
-      <div class="audio-player">
-        <audio id="soundscape" controls preload="metadata">
-          <source
-            src="audio/dongguan-soundscape.mp3"
-            type="audio/mpeg"
-          >
-          Your browser does not support HTML5 audio.
-        </audio>
-      </div>
-
-      <p id="audioStatus" aria-live="polite">
-        Press play to experience the sounds of Dongguan.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>Lab 5 | Design with Sound & Vision</p>
-  </footer>
+      <section class="credits-section" id="credits" aria-labelledby="credits-title"><div class="section-header credits-header"><span class="section-kicker">/ SOURCES & CREDITS</span><h2 id="credits-title">Everything credited.</h2><p>Sources for the setting and concept, plus clear attribution for original project media.</p></div><div class="credits-columns"><div><h3>Project media</h3><ul><li><strong>Soundscape:</strong> <code>shenzhen-75s.mp3</code>, 75-second original synthesised audio composition, produced for this assignment. No third-party recordings or samples used.</li><li><strong>Visuals:</strong> <code>futian.svg</code>, <code>huaqiangbei.svg</code>, <code>shenzhen-bay.svg</code>, original SVG illustrations produced for this assignment. No third-party images or video reused.</li><li><strong>Code:</strong> Original HTML, CSS and JavaScript; built using browser-native HTML5 Audio and Web Audio APIs. No external fonts, libraries, trackers, or CDNs.</li></ul></div><div><h3>Research / place references</h3><ol><li><a href="https://www.sz.gov.cn/en_szgov/news/infocus/SZCitywalk/Explore/CitywalkRoutes/CyberSZ/content/post_11893874.html" target="_blank" rel="noopener noreferrer">Shenzhen Municipal Government, “Cyber Shenzhen”</a> (2024). Context for Huaqiangbei and the Gangxia North transit hub.</li><li><a href="https://www.sz.gov.cn/en_szgov/news/latest/content/post_12950959.html" target="_blank" rel="noopener noreferrer">Shenzhen Municipal Government, “Shenzhen's Huaqiangbei: A global gateway for Chinese smart technology”</a> (2026). Huaqiangbei's electronics-market character.</li><li><a href="https://www.sz.gov.cn/en_szgov/news/infocus/SZCitywalk/Explore/Attractions/content/post_11857053.html" target="_blank" rel="noopener noreferrer">Shenzhen Municipal Government, “Shenzhen Bay Park”</a> (2022). Background on the waterfront, paths and shoreline setting.</li></ol></div></div><div class="credit-bottom"><details><summary>Show native HTML5 audio controls</summary><audio controls preload="none" src="assets/shenzhen-75s.mp3" aria-label="Alternate native audio player"></audio><p>These alternative controls play the same audio file independently of the main interactive player.</p></details><span>DESIGNED FOR DESIGN WITH SOUND & VISION • 2026</span></div></section>
+    </main>
+    <footer class="footer"><div><span class="footer-symbol">✳</span> A PORTRAIT OF SHENZHEN</div><a href="#top">BACK TO TOP ↑</a></footer>
+  </div>
 </body>
 </html>
